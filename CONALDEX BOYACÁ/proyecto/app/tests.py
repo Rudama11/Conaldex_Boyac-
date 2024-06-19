@@ -140,3 +140,15 @@ from app.models import Categoria,Ubicacion,Empleado
 # for i in d1:
 #     Categoria(id=i[0],nombre=i[1],Ciudad=i[2]).save()
 #     print("Se guardo con éxito")
+
+#---------------------------------------------------------------- CLASE EMPLEADO--------------------------------------------
+#Editar
+
+try:
+    em = Empleado.objects.get(id=4)
+    print(em.nombres)
+    em.nombres = "Miguel Camilo"
+    em.save()
+    print(f"Se cambio el nombre {em.nombres} correctamente")
+except Exception as e:
+    print(e)
