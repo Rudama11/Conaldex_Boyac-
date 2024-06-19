@@ -5,10 +5,37 @@ import sys
 
 sys.path.append(str(Path(__file__).parent.parent))
 from proyecto.wsgi import*
-from app.models import Categoria,Ubicacion
+from app.models import Categoria,Ubicacion,Empleado
 
 # Create your tests here.
-# from app.models import Categoria
+#---------------------------------------------------------------- CLASE EMPLEADO --------------------------------------------
+# Empleado.objects.all().delete()
+# Consulta = Empleado.objects.all()
+# print (Consulta)
+# #Insertar empleados a la clase empleado
+# em=Empleado(Tipo_Documento= "CE",nombres="Juan Carlos",apellidos="Cardenas Perez",correo="carlosperez01@gmail.com",fecha_nacimiento="2000-07-13",telefono=3123461522).save()
+# Consulta=Empleado.objects.all()
+# print (Consulta)
+# em=Empleado(Tipo_Documento= "CC",nombres="Laura Camila",apellidos="Rojas Gonzalez",correo="camigonzalez@gmail.com",fecha_nacimiento="2001-09-04",telefono=3224127846).save()
+# Consulta=Empleado.objects.all()
+# print (Consulta)
+# em=Empleado(Tipo_Documento= "CC",nombres="Carlos",apellidos="Rodriguez",correo="carlosrod123@gmail.com",fecha_nacimiento="1999-11-14",telefono=3138451247).save()
+# Consulta=Empleado.objects.all()
+# print (Consulta)
+
+# #Editar nombre empleado cuyo id es 2
+# em=Empleado.objects.get(id=2)
+# em.nombres="Juan"
+# em.save()
+# Consulta=Empleado.objects.all()
+# print (Consulta)
+
+# #Eliminar empleado id 3
+# em=Empleado.objects.get(id=3)
+# em.delete()
+# Consulta=Empleado.objects.all()
+# print(Consulta)
+#---------------------------------------------------------------- CLASE CATEGORIA --------------------------------------------
 
 # Categoria.objects.all().delete()
 
@@ -64,8 +91,8 @@ from app.models import Categoria,Ubicacion
 
 # for i in Categoria.objects.filter():
 #     print(i.nombre)
-#--------------------------------------------------------------------------------------------------------------------------------
-#Ubicacion 
+#---------------------------------------------------------------- CLASE UBICACION--------------------------------------------
+
 #Insertar
 # u= Ubicacion(id =1, Departamento ='Boyacá',Ciudad="Sogamoso").save()
 # u= Ubicacion(id =2,Departamento ='Boyacá',Ciudad="Sogamoso").save()
@@ -83,21 +110,21 @@ from app.models import Categoria,Ubicacion
 # print(obj)
 
 # Editar
-#Obtener el objeto Ubicacion con ID=1
-u = Ubicacion.objects.get(id=1)
-# Imprimir los atributos válidos del objeto Ubicacion
-print(u.Departamento)
-print(u.Ciudad)
-# Editar los atributos del objeto Ubicacion
-u.Departamento = 'Boyacá'
-u.Ciudad = 'Duitama'
-# Guardar los cambios en la base de datos
-u.save()
-# Recuperar el objeto actualizado de la base de datos para reflejar los cambios
-u_actualizado = Ubicacion.objects.get(id=1)
-# Imprimir los atributos actualizados del objeto Ubicacion
-print(u_actualizado.Departamento)
-print(u_actualizado.Ciudad)
+# #Obtener el objeto Ubicacion con ID=1
+# u = Ubicacion.objects.get(id=1)
+# # Imprimir los atributos válidos del objeto Ubicacion
+# print(u.Departamento)
+# print(u.Ciudad)
+# # Editar los atributos del objeto Ubicacion
+# u.Departamento = 'Boyacá'
+# u.Ciudad = 'Duitama'
+# # Guardar los cambios en la base de datos
+# u.save()
+# # Recuperar el objeto actualizado de la base de datos para reflejar los cambios
+# u_actualizado = Ubicacion.objects.get(id=1)
+# # Imprimir los atributos actualizados del objeto Ubicacion
+# print(u_actualizado.Departamento)
+# print(u_actualizado.Ciudad)
 
 #Eliminar 
 # Categoria.objects.get (id=4).delete()
