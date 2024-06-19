@@ -130,4 +130,13 @@ from app.models import Categoria,Ubicacion,Empleado
 # Categoria.objects.get (id=4).delete()
 # print(consulta)
 
+#---------------------------------------------------------------- CLASE CATEGORÍA--------------------------------------------
+#Insertar
+# d1 = ([(6,"Protección Auditiva","Sogamoso"),
+#     (7,"Protección Ocular","Sogamoso"),
+#     (8,"Protección de Manos","Sogamoso"),
+#     (9,"Protección Respiratoria","Sogamoso")])
 
+# for i in d1:
+#     Categoria(id=i[0],nombre=i[1],Ciudad=i[2]).save()
+#     print("Se guardo con éxito")
