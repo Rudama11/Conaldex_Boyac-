@@ -26,7 +26,7 @@ class Empleado(models.Model):
 #----------------------------------------------------------------
 
 class Ubicacion(models.Model):
-    id = models.CharField(primary_key=True,max_length=6)
+    id = models.models.IntegerField(primary_key=True,max_length=6)
     Departamento=models.CharField(max_length=100,verbose_name='Departamento')
     Ciudad=models.CharField(max_length=100,verbose_name='Ciudad')
     
