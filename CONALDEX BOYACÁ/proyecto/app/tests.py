@@ -144,11 +144,39 @@ from app.models import Categoria,Ubicacion,Empleado
 #---------------------------------------------------------------- CLASE EMPLEADO--------------------------------------------
 #Editar
 
-try:
-    em = Empleado.objects.get(id=4)
-    print(em.nombres)
-    em.nombres = "Miguel Camilo"
-    em.save()
-    print(f"Se cambio el nombre {em.nombres} correctamente")
-except Exception as e:
-    print(e)
+# try:
+#     em = Empleado.objects.get(id=4)
+#     print(em.nombres)
+#     em.nombres = "Miguel Camilo"
+#     em.save()
+#     print(f"Se cambio el nombre {em.nombres} correctamente")
+# except Exception as e:
+#     print(e)
+
+#-------------------------------------- Class proveedor ----------------------------------------
+
+#-------------------------------------BORRAR DATOS --------------------------------
+
+# Proveedor.objects.all().delete()
+
+#-------------------------------- LISTAS-------------------------------
+
+# Consulta = Proveedor.objects.all()
+# print (Consulta)
+
+#----------------------------------- AGREGAR-------------------------------------
+
+# u= Proveedor(id =1, nombres ='miguel',apellidos="castro",correo="correo1@gmail.com",telefono="3224567006",direccion="CR 5 N4-B",Tipo_Documento="CE",cod_postal_id="1").save()
+# u= Proveedor(id =2, nombres ='Esteban',apellidos="zuares",correo="correo2@gmail.com",telefono="3207569506",direccion="CR 4 N63_56",Tipo_Documento="CC",cod_postal_id="2").save()
+# consulta = Proveedor.objects.all()
+# print(consulta)
+
+#------------------------------------- EDITAR --------------------------------------------
+
+# #Editar nombre empleado cuyo id es 2
+# p=Proveedor.objects.get(id=2)
+# p.nombres="Daniel"
+# p.save()
+# Consulta=Proveedor.objects.all()
+# print (Consulta)
+
