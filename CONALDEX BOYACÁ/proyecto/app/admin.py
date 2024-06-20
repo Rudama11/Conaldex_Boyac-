@@ -1,5 +1,6 @@
 from django.contrib import admin
 from app.models import*
+from .models import Categoria, Producto, Compra #agregue import para productos 
 # Register your models here.
 admin.site.register(Empleado)
 admin.site.register(Ubicacion)

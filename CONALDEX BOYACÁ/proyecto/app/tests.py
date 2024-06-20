@@ -5,7 +5,7 @@ import sys
 
 sys.path.append(str(Path(__file__).parent.parent))
 from proyecto.wsgi import*
-from app.models import Categoria,Ubicacion,Empleado
+from app.models import Categoria,Ubicacion,Empleado,Producto
 
 # Create your tests here.
 #---------------------------------------------------------------- CLASE EMPLEADO --------------------------------------------
@@ -180,3 +180,37 @@ from app.models import Categoria,Ubicacion,Empleado
 # Consulta=Proveedor.objects.all()
 # print (Consulta)
 
+#------------------------------------AGREGAR--------------------------------------
+
+Producto(Descripcion='Extintor 1', Stock=10, Categoria=Categoria.objects.first(), Precio=150.500).save()
+Producto(Descripcion='Extintor 2', Stock=20, Categoria=Categoria.objects.first(), Precio=200.750).save()
+
+#----------------------------------AGREGAR + PRODUCTO--------------------------------
+productos_nuevos = [
+{'Descripcion': 'Botas de Seguridad', 'Stock': 15, 'Precio': 120.000, 'Categoria': Categoria.objects.first()},
+{'Descripcion': 'Chaleco Reflectivo', 'Stock': 2, 'Precio': 80.500, 'Categoria': Categoria.objects.first()},
+{'Descripcion': 'Casco de Seguridad', 'Stock': 8, 'Precio': 50.000, 'Categoria': Categoria.objects.first()},
+
+]
+for producto_data in productos_nuevos:
+    Producto(**producto_data).save()
+
+#--------------------------------CONSULTAR PRODUCTOS--------------------------------
+productos = Producto.objects.all()
+print("Lista de Productos:")
+for producto in productos:
+    print(f"- {producto.Descripcion} (Stock: {producto.Stock}, Precio: ${producto.Precio})")
+
+#------------------------EDITAR------------------------------------
+producto = Producto.objects.get(id=1)
+producto.Descripcion = 'Extintor ABC'
+producto.save()
+print(f"Producto '{producto.Descripcion}' editado correctamente.")
+
+#------------------------ELIMINAR---------------------------------------
+try:
+    producto = Producto.objects.get(id=2)
+    producto.delete()
+    print(f"Producto '{producto.Descripcion}' eliminado correctamente.")
+except Producto.DoesNotExist:
+    print("El producto con id=2 no existe.")
