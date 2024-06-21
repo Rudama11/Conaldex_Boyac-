@@ -102,33 +102,19 @@ class Proveedor(models.Model):
 #----------------------------------------------------------------
 
 class Producto(models.Model):
-    Descripcion = models.CharField(max_length=300, unique=True, verbose_name='Descripción')
-    Stock = models.IntegerField(default=0)  # Corregido el valor predeterminado a 0
+    Descripcion = models.CharField(max_length=300, verbose_name='Descripcion')
+    Stock = models.IntegerField(default=True)
     Precio = models.DecimalField(default=0.00, max_digits=9, decimal_places=3)
-    Categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, verbose_name='Categoría')
-
-    def save(self, *args, **kwargs):
-        if self.pk is None:  # Si es un nuevo producto
-            super().save(*args, **kwargs)  # Guarda el producto en la base de datos
-        else:
-            try:
-                existing_producto = Producto.objects.get(Descripcion=self.Descripcion)
-                if self.pk != existing_producto.pk:  # Verifica si es el mismo producto
-                    raise ValueError("Ya existe un producto con la misma descripción.")
-                
-                existing_producto.Stock += self.Stock  # Suma el Stock del producto actual al existente
-                existing_producto.save(update_fields=['Stock'])  # Guarda solo el campo Stock actualizado
-            except Producto.DoesNotExist:
-                super().save(*args, **kwargs)
-
-    def __str__(self):
+    Categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, verbose_name='Categoria')
+    
+    def _str_(self):
         return self.Descripcion
-
+    
     class Meta:
         verbose_name = 'Producto'
         verbose_name_plural = 'Productos'
         db_table = 'Producto'
-        # ordering = ['id']
+       # ordering = ['id']
 #----------------------------------------------------------------
 class Compra(models.Model):
     cantidad_producto=models.IntegerField(default=0)
